@@ -1,0 +1,16 @@
+#Wap to return len of two integer , one for positive & another negative len integer
+class Solution:
+    def solve(self, A):
+        positive_num = 0
+        negative_num = 0
+
+        for value in A:
+            if value > 0:
+                positive_num += 1
+            elif value < 0:
+                negative_num += 1
+
+        return f'{positive_num} {negative_num}'  # Add a space between the numbers
+
+
+

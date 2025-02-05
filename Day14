@@ -1,0 +1,64 @@
+####Problem
+
+Alice has the following two types of taxis:
+
+    Online taxi: It can be booked by using an online application from phones 
+    Classic taxi: It can be booked anywhere on the road
+
+The online taxis cost
+for the first  km and for every km afterward. The classic taxis travel at a speed of km per minute. The cost of classic taxis are , , and 
+
+ that represents the base fare, cost for every minute that is spent in the taxi, and cost for each kilometer that you ride.
+
+You are going to the office from your home. Your task is to minimize the cost that you are required to pay. The distance from your home to the office is D. You are required to select whether you want to use online or classic taxis to go to your office. If both the taxis cost the same, then you must use an online taxi.
+
+Input format
+
+    First line: Single integer 
+
+ that denotes the distance from your house to the office
+Next line: Three integers 
+ ,  , and 
+  
+Next line: Four integers
+ ,  ,  , and 
+
+Output format
+
+If you select an online taxi to travel, then print a string 'Online Taxi'. Otherwise, select 'Classic Taxi'. You can print this string in a new, single line.
+
+
+
+
+
+
+###Code
+
+
+def taxi_rate(Total_distance):
+
+    Online_taxi_cost,First_distance,Constant_rate = map(int,input('').split())
+
+    if Online_taxi_cost < 0 or First_distance < 0 or Constant_rate < 0 :
+        return 'Invalid value'
+    else:
+        Total_onlineTaxi_Fare = Online_taxi_cost + (Total_distance-First_distance)*Constant_rate
+
+    Classic_taxi_speed,Classic_taxi_cost,Classic_taxi_cost_per_min,Classic_taxi_cost_per_KM = map(int,input().split())
+
+    if Classic_taxi_speed < 0 or Classic_taxi_cost < 0 or Classic_taxi_cost_per_min < 0 or Classic_taxi_cost_per_KM < 0:
+        return 'Invalid Value'
+    else:
+        Total_ClassicTaxi_Fare =  Classic_taxi_cost + (Total_distance/Classic_taxi_speed)*Classic_taxi_cost_per_min + Classic_taxi_cost_per_KM*Total_distance
+
+    # print(f"Online : {Total_onlineTaxi_Fare}")
+    # print(f"Classic : {Total_ClassicTaxi_Fare}")
+    if Total_onlineTaxi_Fare <= Total_ClassicTaxi_Fare:
+        return "Online Taxi"
+    else:
+        return "Classic Taxi"
+
+
+Total_distance = int(input())
+result = taxi_rate(Total_distance)
+print(result)

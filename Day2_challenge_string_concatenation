@@ -1,0 +1,10 @@
+class Solution(object):
+    def getConcatenation(self, nums):
+        
+        return nums+nums
+
+
+solution = Solution()
+num1 = [1,2,1]
+output = solution.getConcatenation(num1)
+print(output)

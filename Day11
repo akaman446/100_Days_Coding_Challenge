@@ -1,0 +1,33 @@
+class Stack:
+    def __init__(self,max_size):
+        self.stack = []
+        self.max_size = max_size
+
+    def push(self,a):
+        print("stack overflow") if len(self.stack) >= self.max_size else self.stack.append(a)
+
+    def pop(self):
+        print("stack underflow") if len(self.stack) == 0 else print(self.stack.pop())
+
+    def top(self):
+        print("stack underflow") if len(self.stack) == 0 else print(self.stack[-1])
+
+
+
+t = int(input())
+
+for _ in range(t):
+    no_of_command , stack_size = map(int,input().split())
+    stack = Stack(stack_size)
+
+    for _ in range(no_of_command):
+        command = input().split()
+        if command[0] == 'push':
+            stack.push(command[1])
+
+        elif command[0] == 'pop':
+            stack.pop()
+
+        elif command[0] == "top":
+            stack.top()
+            

@@ -1,0 +1,54 @@
+###Problem
+
+A robot's initial position is
+and it can only move along X-axis. It has
+
+moves to make and in each move, it will select one of the following options:
+
+    Go to 
+
+from
+Go to
+from
+
+    Remain at its current position
+
+Your task is to calculate 
+ for all reachable
+
+.
+
+Note: Here,
+
+denotes the absolute value.
+
+See the sample explanation for better understanding.
+
+Input format
+
+    The first line contains 
+
+denoting the number of test cases.
+The first line of each test case containing an integer
+
+    denoting the number of moves.
+
+Output format
+
+Print
+lines. For each test case, print a single integer as described in the problem statement.
+
+
+###CODE
+
+
+
+def Robot_Move(n):
+    return n * (n+1)
+
+            
+t = int(input().strip())
+for _ in range(t):
+    n = int(input().strip())
+    result = Robot_Move(n)
+    print(result)

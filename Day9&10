@@ -1,0 +1,17 @@
+import numpy as np
+class Solution(object):
+    def getConcatenation(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        return np.concatenate((nums,nums)).tolist()
+
+
+
+sol = Solution()
+nums = [1,2,1]
+result = sol.getConcatenation(nums)
+print(result)
+        

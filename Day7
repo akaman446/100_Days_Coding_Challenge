@@ -1,0 +1,20 @@
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        arr = []
+        sum_value = 0
+        
+        for num in nums:
+            sum_value += num
+            arr.append(sum_value)
+        
+        return arr
+
+
+
+          
+        
+        
