@@ -1,0 +1,60 @@
+###
+Problem
+You are given an integer array 
+. Your task is to calculate the sum of absolute difference of indices of first and last occurrence for every integer that is present in array 
+.
+
+Formally, if element 
+ occurs 
+ times in the array at indices 
+, then the answer for 
+ will be 
+ if array 
+ is sorted.
+
+You are required to calculate the sum of the answer for every such 
+ that occurs in the array.
+
+Refer to sample notes and explanations for better understanding.
+
+Input format
+
+The first line contains an integer 
+ that denotes the number of test cases.
+The first line of each test case contains an integer 
+ that denotes the number of elements in the array.
+The second line of each test case contains 
+ space seperated integers 
+.
+Output format
+
+For each test case, print a single line as described in the problem statement.
+
+
+
+
+### CODE
+
+
+def sum_of_absolute_differences(test_cases):
+    results = []
+    for _ in range(test_cases):
+        n = int(input())
+        array = list(map(int, input().split()))
+        first_occurrence = {}
+        last_occurrence = {}
+        for idx, num in enumerate(array):
+            if num not in first_occurrence:
+                first_occurrence[num] = idx
+            last_occurrence[num] = idx
+        total_sum = 0
+        for num in first_occurrence:
+            total_sum += abs(last_occurrence[num] - first_occurrence[num])
+        results.append(total_sum)
+    for result in results:
+        print(result)
+
+
+
+t = int(input())
+sum_of_absolute_differences(t)
