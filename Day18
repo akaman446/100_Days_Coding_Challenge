@@ -1,0 +1,32 @@
+###Problem
+You are given a number n.
+
+A supernatural number is a number whose product of digits is equal to n, and in this number there is no digit 1.
+
+Count the number of supernatural numbers for a given n.
+
+Input
+
+Contains a single integer n, 1 <= n <= 100.
+
+Output
+
+Print the number of supernatural numbers.
+
+
+
+###CODE
+
+
+from itertools import product
+
+def count_supernatural_numbers(n):
+    count = 0
+    for length in range(1, 5):
+        for digits in product([2, 3, 4, 5, 6, 7, 8, 9], repeat=length):
+            if eval('*'.join(map(str, digits))) == n:
+                count += 1
+    return count
+
+n = int(input())
+print(count_supernatural_numbers(n))
